@@ -1,36 +1,40 @@
-<div class="py-10">
-  <div class="text-center mb-10">
-    <h2 class="text-3xl md:text-4xl font-bold text-[#0e1133]">Download app today!</h2>
-    <p class="text-lg font-medium text-gray-600">Download app for Android today — it's free.</p>
-  </div>
+import Btn from "../../Component/Btn";
+import Title from "../../Component/Title";
+import dawnload1 from "/src/assets/download-thumb-1.png";
+import dawnload2 from "/src/assets/download-thumb-2.png";
+const Application = () => {
+  return (
+    <div className="py-10">
+      <Title
+        title={"Download app today!"}
+        subtitle={"Download app for Andraoid today — it's free."}
+      ></Title>
 
-  <div class="p-5 my-5 grid md:grid-cols-2 gap-10">
-    <div class="bg-[#ebf2fc] rounded-3xl">
-      <div class="p-10 space-y-2">
-        <h4 class="text-2xl text-[#0e1133] font-bold">Android</h4>
-        <p class="font1">Download app for Android today — it's free.</p>
-        <button
-          type="button"
-          class="text-[#801f82] border-2 border-[#801f82] px-5 py-2 font-semibold text-base rounded-md hover:bg-[#801f82] hover:text-white"
-        >
-          Download for Android
-        </button>
-      </div>
-      <img src="/path/to/download-thumb-1.png" alt="Android App" class="md:h-56 lg:h-96 mx-auto" />
-    </div>
+      <div className="p-5 my-5 grid md:grid-cols-2 gap-10">
+        <div className="bg-[#ebf2fc] rounded-3xl">
+          <div className="p-10 space-y-2">
+            <h4 className=" text-2xl text-[#0e1133] font-bold">Android</h4>
+            <p className=" font1">
+              Download app for Android today — it&lsquo;s free.
+            </p>
+            <Btn btnName={"Download for Android"}></Btn>
+          </div>
+          <img className=" md:h-56 lg:h-96 m-auto" src={dawnload1} alt="" />
+        </div>
 
-    <div class="bg-[#ebf2fc] rounded-3xl">
-      <div class="p-10 space-y-2">
-        <h4 class="text-2xl text-[#0e1133] font-bold">iOS & iPadOS</h4>
-        <p class="font1">Download app for iOS & iPadOS today — it's free.</p>
-        <button
-          type="button"
-          class="text-[#801f82] border-2 border-[#801f82] px-5 py-2 font-semibold text-base rounded-md hover:bg-[#801f82] hover:text-white"
-        >
-          Download for Android
-        </button>
+        <div className="bg-[#ebf2fc] rounded-3xl">
+          <div className="p-10 space-y-2">
+            <h4 className=" text-2xl text-[#0e1133] font-bold">iOS & iPadOS</h4>
+            <p className=" font1">
+              Download app for iOS & iPadOS today — it&lsquo;s free.
+            </p>
+            <Btn btnName={"Download for Android"}></Btn>
+          </div>
+          <img className=" md:h-56 lg:h-96 m-auto" src={dawnload2} alt="" />
+        </div>
       </div>
-      <img src="/path/to/download-thumb-2.png" alt="iOS App" class="md:h-56 lg:h-96 mx-auto" />
     </div>
-  </div>
-</div>
+  );
+};
+
+export default Application;
