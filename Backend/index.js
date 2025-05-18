@@ -52,6 +52,134 @@ async function run() {
     const userCollection = database.collection("UserData");
     const dataCollection = database.collection("TaskData");
 
+    // Post user details
+    app.post("/user", async (req, res) => {
+      const data = req.body;
+      const query = { email: data.email };
+      const existingUser = await userCollection.findOne(query);
+      if (existingUser) {
+        return res.send({ message: "user already exists", insertedId: null });
+      }
+      const result = await userCollection?.insertOne(data);
+      res.send(result);
+    });
+
+    // Update user information to database
+    app.put("/user/:email", async (req, res) => {
+      const userEmail = req.params.email;
+      const filter = { email: userEmail };
+      const data = req.body;
+      const updatedDoc = {
+        $set: {
+          name: data.name,
+          email: data.email,
+          photo: data.photo,
+        },
+      };
+      const options = { upsert: true };
+      const result = await userCollection.updateOne(
+        filter,
+        updatedDoc,
+        options
+      );
+      res.send(result);
+    });
+
+    // Get user data from database
+    app.get("/user/:email", async (req, res) => {
+      const userEmail = req.params.email;
+      const quary = { email: userEmail };
+      const result = await userCollection.findOne(quary);
+      res.send(result);
+    });
+
+    // Add a Task in the server
+    app.post("/addTask", async (req, res) => {
+      const TaskData = req.body;
+      const result = await dataCollection?.insertOne(TaskData);
+      res.send(result);
+    });
+
+    // Get Task data using user email
+    app.get("/Task/:email", async (req, res) => {
+      const email = req.params.email;
+      const query = { taskfor: email };
+      const result = await dataCollection
+        .find(query)
+        .sort({ lastUpdated: -1 })
+        .toArray();
+      res.send(result);
+    });
+    // Delete a A Task
+    app.delete("/Task/delete/:id", verifyToken, async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await dataCollection.deleteOne(query);
+      res.send(result);
+    });
+
+    // get single Task by id
+    app.get("/Tasks/:id", async (req, res) => {
+      const id = req.params.id;
+      const quary = { _id: new ObjectId(id) };
+      const result = await dataCollection.findOne(quary);
+      res.send(result);
+    });
+    // Update Task's status by ID
+    app.put("/task-status/:id", verifyToken, async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const data = await dataCollection.findOne(filter);
+      const updatedDoc = {
+        $set: {
+          title: data.title,
+          details: data.details,
+          taskfor: data.taskfor,
+          priority: data.priority,
+          list: req?.body?.newStatus,
+          bgColor: data.bgColor,
+          textColor: data.textColor,
+          lastUpdated: new Date(),
+        },
+      };
+
+      const options = { upsert: false };
+      const result = await dataCollection.updateOne(
+        filter,
+        updatedDoc,
+        options
+      );
+      res.send(result);
+    });
+
+    // Update Task information to database
+    app.put("/Task/:id", verifyToken, async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const data = req.body;
+      const updatedDoc = {
+        $set: {
+          title: data.title,
+          details: data.details,
+          taskfor: data.taskfor,
+          priority: data.priority,
+          list: data.list,
+          bgColor: data.bgColor,
+          bgColor: data.bgColor,
+          bgColor: data.bgColor,
+          textColor: data.textColor,
+          lastUpdated: new Date(),
+        },
+      };
+      const options = { upsert: false };
+      const result = await dataCollection.updateOne(
+        filter,
+        updatedDoc,
+        options
+      );
+      res.send(result);
+    });
+
     // JWT
     app.post("/jwt", async (req, res) => {
       const user = req.body;
