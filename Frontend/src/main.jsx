@@ -1,9 +1,22 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom/client";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
+import MainLayout from "./Layout/MainLayout";
+import Landing from "./Pages/Landing/Landing";
+import Login from "./Pages/LoginPage/Login";
+import AuthProvider from "./Authantication/AuthProvider/AuthProvider";
+import CreateAccount from "./Pages/Registration/CreateAccount";
+import Dashboard from "./Pages/UserPages/DashBoard/Dashboard";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import PrivateRoute from "./Routes/PrivateRoute";
+import AddTask from "./Pages/UserPages/AddTask/AddTask";
+import MyTask from "./Pages/UserPages/MyTask/MyTask";
+import UpdateTask from "./Pages/UserPages/UpdateTask/UpdateTask";
+import SigninRouter from "./Routes/SigninRouter";
+import AboutUs from "./Pages/AboutUs/AboutUs";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -21,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/signin",
         element: <Login></Login>,
+      },
+      {
+        path: "/about_us",
+        element: <AboutUs></AboutUs>,
       },
       {
         path: "/signup",
@@ -60,7 +77,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <QueryClientProvider client={QueryClient}>
+    <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>
