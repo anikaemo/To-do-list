@@ -23,8 +23,8 @@ const AboutUs = () => {
       type: "normal",
     },
     {
-      id: "0622220105102016",
-      name: "Sadia Islam",
+      id: "0622220205101016",
+      name: "Sadia Bristi",
       role: "Frontend Developer",
       department: "Computer Science & Engineering",
       batch: "14th",
@@ -48,8 +48,8 @@ const AboutUs = () => {
       type: "normal",
     },
     {
-      id: "0622220105102039",
-      name: "Anika Sharkar",
+      id: "0622220205101039",
+      name: "Anika Sarker Emo",
       role: "Team Leader",
       department: "Computer Science & Engineering",
       batch: "14th",
