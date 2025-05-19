@@ -1,6 +1,4 @@
-<!-- WhatDo Section -->
 <div class="py-10 bg-[#0e1133]">
-  <!-- Section Title -->
   <div class="m-auto text-center px-4">
     <h3 class="text-3xl text-white font-bold">Wherever you need us</h3>
     <p class="max-w-[90%] md:max-w-[60%] mx-auto text-gray-400 font-medium">
@@ -8,14 +6,11 @@
     </p>
   </div>
 
-  <!-- Content Grid -->
   <div class="hero-content flex-col-reverse md:flex-row-reverse items-center">
-    <!-- Image Column -->
     <div class="md:w-5/12">
       <img src="/src/assets/whatdo.png" alt="Features" class="w-10/12 mx-auto" />
     </div>
 
-    <!-- Features List Column -->
     <div class="md:w-7/12">
       <!-- Feature Card 1 -->
       <div class="card my-5 w-[80%] mx-auto md:card-side p-5 rounded-md border border-[#ff3e6534] hover:border-[#ff3e66] bg-transparent">
