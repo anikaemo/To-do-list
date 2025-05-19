@@ -1,65 +1,69 @@
-/* eslint-disable react/no-unescaped-entities */
-import bannerImg from "/src/assets/whatdo.png";
-const WhatDo = () => {
+import Title from "../../Component/Title";
+import { MdOutlineRestartAlt } from "react-icons/md";
+import { CiFaceSmile } from "react-icons/ci";
+import { CiLock } from "react-icons/ci";
+import { SlEarphones } from "react-icons/sl";
+
+const ToDo = () => {
   return (
-    <div className="py-10 bg-[#0e1133]">
-      <div className="m-auto">
-        <h3 className="text-center m-auto text-3xl text-white font-bold">
-          Wherever you need us
-        </h3>
-        <p className="max-w-[90%] font1 text-center text-gray-400 m-auto md:max-w[60%]">
-          When it comes down to choosing task manager freeware, all you need is
-          three things:
-        </p>
-      </div>
+    <div className="py-10">
+      <Title
+        title={"What you can do"}
+        subtitle={
+          "Coincidentally, that’s exactly what you get from appie - a free online task management app that’s easy to use and features dozens of collaboration tools."
+        }
+      ></Title>
 
-      <div className="hero-content flex-col-reverse md:flex-row-reverse">
-        <div className="md:w-5/12">
-          <img src={bannerImg} className=" w-10/12 m-auto" />
+      <div className="p-5 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="card bg-base-100 hover:shadow-xl hover:shadow-[#4285fa52] transition-all">
+          <div className="p-3 mt-3 m-auto bg-[#4284fa] shadow-lg rounded-full">
+            <MdOutlineRestartAlt className="text-4xl text-white" />
+          </div>
+
+          <div className="card-body">
+            <h2 className="card-title m-auto">Easy to use</h2>
+            <p className="text-center">
+              Mucker plastered bugger all mate morish are.
+            </p>
+          </div>
         </div>
-        <div className="md:w-7/12">
-          <div>
-            <div className="card my-5 w-[80%] m-auto md:card-side p-5 rounded-md bg-base-100 border border-[#ff3e6534] hover:border-[#ff3e66] bg-transparent">
-              <figure>
-                <div className="w-4 h-4 bg-[#ff3e66] rounded-full"></div>
-              </figure>
-              <div className="md:pl-5">
-                <h2 className="text-lg text-gray-200 font-bold">
-                  Light and dark mode
-                </h2>
-                <p className="text-gray-500 text-sm">
-                  The bee's knees chancer car boot absolutely.
-                </p>
-              </div>
-            </div>
 
-            <div className="card w-[80%] my-5 m-auto md:card-side p-5 rounded-md bg-base-100 border border-[#20993061] hover:border-green-400 bg-transparent">
-              <figure>
-                <div className="w-4 h-4 bg-green-400 rounded-full"></div>
-              </figure>
-              <div className="md:pl-5">
-                <h2 className="text-lg text-gray-200 font-bold">
-                  Well Integrated
-                </h2>
-                <p className="text-gray-500 text-sm">
-                  The bee's knees chancer car boot absolutely.
-                </p>
-              </div>
-            </div>
+        <div className="card bg-base-100 hover:shadow-xl hover:shadow-[#f85d4951] transition-all">
+          <div className="p-3 mt-3 m-auto bg-[#f85e49] shadow-lg rounded-full">
+            <CiFaceSmile className="text-4xl text-white" />
+          </div>
 
-            <div className="card my-5 w-[80%] m-auto md:card-side p-5 rounded-md bg-base-100 border border-[#2eadfc3a] hover:border-[#2eacfc] bg-transparent">
-              <figure>
-                <div className="w-4 h-4 bg-[#2eacfc] rounded-full"></div>
-              </figure>
-              <div className="md:pl-5">
-                <h2 className="text-lg text-gray-200 font-bold">
-                  Clean and modern Design
-                </h2>
-                <p className="text-gray-500 text-sm">
-                  The bee's knees chancer car boot absolutely.
-                </p>
-              </div>
-            </div>
+          <div className="card-body">
+            <h2 className="card-title m-auto">Free to use</h2>
+            <p className="text-center">
+              Mucker plastered bugger all mate morish are.
+            </p>
+          </div>
+        </div>
+
+        <div className="card bg-base-100 hover:shadow-xl hover:shadow-[#45ca7856] transition-all">
+          <div className="p-3 mt-3 m-auto bg-[#45ca79] shadow-lg rounded-full">
+            <CiLock className="text-4xl text-white" />
+          </div>
+
+          <div className="card-body">
+            <h2 className="card-title m-auto">Secured protocol</h2>
+            <p className="text-center">
+              Mucker plastered bugger all mate morish are.
+            </p>
+          </div>
+        </div>
+
+        <div className="card bg-base-100 hover:shadow-xl hover:shadow-[#a646fb53] transition-all">
+          <div className="p-3 mt-3 m-auto bg-[#a846fb] shadow-lg rounded-full">
+            <SlEarphones className="text-4xl text-white" />
+          </div>
+
+          <div className="card-body">
+            <h2 className="card-title m-auto">Fully Functional</h2>
+            <p className="text-center">
+              Mucker plastered bugger all mate morish are.
+            </p>
           </div>
         </div>
       </div>
@@ -67,4 +71,4 @@ const WhatDo = () => {
   );
 };
 
-export default WhatDo;
+export default ToDo;
